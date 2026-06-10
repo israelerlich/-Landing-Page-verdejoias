@@ -1,0 +1,15 @@
+# Configuração local do Claude (específica da máquina, pode conter caminhos locais)
+.claude/settings.local.json
+
+# Fotos de catálogo (material de origem) que a página NÃO usa — pesadas (~116 MB)
+assets/
+
+# Material de referência avulso (ManyChat) — não faz parte da landing page
+manychat_ai.html
+manychat_extract.txt
+
+# Lixo de sistema operacional
+Thumbs.db
+ehthumbs.db
+.DS_Store
+desktop.ini

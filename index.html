@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eternização | Verde Joias — Transforme memórias em peças únicas</title>
+<meta name="description" content="A Eternização da Verde Joias transforma flores, buquês e memórias afetivas em peças únicas, artesanais e personalizadas. Fale conosco pelo WhatsApp." />
+
+<!-- Montserrat — única fonte da página -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+
+<style>
+  /* ===========================================================
+     VARIÁVEIS DE MARCA — Verde Joias
+     =========================================================== */
+  :root {
+    --bg:           #faf7f1; /* off-white / bege quente */
+    --bg-warm:      #f3ede2; /* bege mais quente */
+    --white:        #ffffff;
+    --green:        #5c6b52; /* verde suave */
+    --green-soft:   #8a9a7c; /* verde claro de apoio */
+    --green-deep:   #41503a; /* verde profundo para hover */
+    --gold:         #b89968; /* dourado sutil */
+    --gold-light:   #d8c4a0;
+    --gold-deep:    #9c7c45; /* dourado mais escuro p/ destaque das eyebrows */
+    --text:         #2f2a23; /* cinza quente / marrom suave — bem mais escuro */
+    --text-soft:    #3d3730; /* texto de apoio bem mais escuro / destacado */
+    --line:         #e7dfd2;
+    --shadow:       0 18px 40px rgba(74, 68, 60, 0.10);
+    --shadow-soft:  0 8px 24px rgba(74, 68, 60, 0.07);
+    --radius:       22px;
+    --radius-sm:    14px;
+    --maxw:         1180px;
+    --ease:         cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ===========================================================
+     RESET
+     =========================================================== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.1px;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-weight: 500; line-height: 1.18; letter-spacing: -0.4px; color: var(--text); }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: 3.5px;
+    text-transform: uppercase; color: var(--gold-deep);
+    margin-bottom: 18px; display: inline-block;
+  }
+  .section { padding: 100px 0; }
+  .divider {
+    width: 54px; height: 1px; background: var(--gold-light);
+    margin: 26px auto; border: none;
+  }
+  .divider.left { margin-left: 0; }
+
+  /* ===========================================================
+     BOTÕES (CTA → WhatsApp)
+     =========================================================== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 11px;
+    font-family: inherit; font-weight: 600; font-size: 15px;
+    letter-spacing: 0.3px;
+    padding: 17px 34px; border-radius: 50px; cursor: pointer;
+    border: none; transition: all .35s var(--ease);
+    background: var(--green); color: #fff;
+    box-shadow: 0 10px 26px rgba(92, 107, 82, 0.28);
+  }
+  .btn:hover { background: var(--green-deep); transform: translateY(-3px); box-shadow: 0 16px 32px rgba(92, 107, 82, 0.34); }
+  .btn svg { width: 19px; height: 19px; fill: currentColor; }
+  .btn.ghost {
+    background: transparent; color: var(--green);
+    border: 1.5px solid var(--green-soft); box-shadow: none;
+  }
+  .btn.ghost:hover { background: var(--green); color: #fff; border-color: var(--green); }
+  .btn.large { padding: 20px 44px; font-size: 16px; }
+
+  /* ===========================================================
+     HEADER
+     =========================================================== */
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    padding: 20px 0; transition: all .4s var(--ease);
+    background: rgba(250, 247, 241, 0);
+  }
+  header.scrolled {
+    background: rgba(250, 247, 241, 0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--line);
+    padding: 14px 0;
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-weight: 600; font-size: 20px; letter-spacing: 1px; color: var(--green-deep); }
+  .logo span { color: var(--gold); font-weight: 500; }
+  .logo-img { display: block; height: 73px; width: auto; transition: height .4s var(--ease); }
+  header.scrolled .logo-img { height: 59px; }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-soft); transition: color .3s; }
+  .nav-links a:hover { color: var(--green); }
+  .nav .btn { padding: 12px 24px; font-size: 14px; }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+
+  /* ===========================================================
+     HERO
+     =========================================================== */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 140px 0 90px; position: relative;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.05fr 1fr;
+    gap: 64px; align-items: center;
+  }
+  .hero h1 { font-size: clamp(2.3rem, 4.6vw, 3.7rem); font-weight: 500; }
+  .hero h1 em { font-style: italic; color: var(--green); font-weight: 400; }
+  .hero p.lead {
+    font-size: 1.12rem; color: var(--text-soft); font-weight: 400;
+    margin: 28px 0 38px; max-width: 480px;
+  }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .hero-media { position: relative; }
+  .hero-media img {
+    width: 100%; border-radius: 30px; box-shadow: var(--shadow);
+    aspect-ratio: 4/5; object-fit: cover;
+  }
+  .hero-media::after {
+    content: ""; position: absolute; inset: -18px -18px auto auto;
+    width: 130px; height: 130px; border: 1px solid var(--gold-light);
+    border-radius: 30px; z-index: -1;
+  }
+  .hero-badge {
+    position: absolute; bottom: 26px; left: -22px;
+    background: var(--white); padding: 16px 22px; border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft); font-size: 13px; font-weight: 500;
+    color: var(--green-deep); display: flex; align-items: center; gap: 10px;
+  }
+  .hero-badge b { color: var(--gold); }
+
+  /* ===========================================================
+     SOBRE
+     =========================================================== */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;
+  }
+  .about-media img {
+    width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-soft);
+    aspect-ratio: 5/4; object-fit: cover;
+  }
+  .about h2, .section-head h2 { font-size: clamp(1.9rem, 3.3vw, 2.7rem); }
+  .about p { font-size: 1.06rem; color: var(--text-soft); font-weight: 400; margin-top: 8px; }
+
+  /* ===========================================================
+     CABEÇALHO DE SEÇÃO CENTRAL
+     =========================================================== */
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+  .section-head p { color: var(--text-soft); font-weight: 400; font-size: 1.05rem; }
+
+  /* ===========================================================
+     CARDS DE CATEGORIA
+     =========================================================== */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .card {
+    background: var(--white); border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow-soft); transition: all .4s var(--ease);
+    border: 1px solid var(--line);
+  }
+  .card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+  .card-img { aspect-ratio: 4/3; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+  .card:hover .card-img img { transform: scale(1.06); }
+  .card-body { padding: 28px 26px 32px; }
+  .card-body h3 { font-size: 1.28rem; margin-bottom: 12px; }
+  .card-body p { color: var(--text-soft); font-weight: 400; font-size: 0.98rem; }
+
+  /* ===========================================================
+     GALERIA — Histórias eternizadas
+     =========================================================== */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .g-item { margin: 0; }
+  .g-img { aspect-ratio: 3/4; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow-soft); }
+  .g-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+  .g-item:hover .g-img img { transform: scale(1.05); }
+  .g-item figcaption { margin-top: 18px; text-align: center; color: var(--text); font-weight: 400; font-size: 0.98rem; line-height: 1.5; padding: 0 6px; }
+  @media (max-width: 880px) { .gallery-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; gap: 40px; } }
+
+  /* ===========================================================
+     DEPOIMENTOS
+     =========================================================== */
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .testi-card { background: var(--white); border-radius: var(--radius); padding: 36px 32px 32px; box-shadow: var(--shadow-soft); border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform .4s var(--ease); }
+  .testi-card:hover { transform: translateY(-6px); }
+  .testi-quote { font-size: 2.6rem; font-weight: 700; line-height: 1; color: var(--gold-light); height: 28px; }
+  .testi-stars { display: flex; gap: 3px; margin: 12px 0 16px; }
+  .testi-stars svg { width: 16px; height: 16px; fill: var(--gold); }
+  .testi-text { color: var(--text); font-weight: 300; font-style: italic; font-size: 1rem; line-height: 1.72; flex: 1; }
+  .testi-author { margin-top: 22px; }
+  .testi-author strong { display: block; font-weight: 600; font-size: 0.95rem; color: var(--green-deep); }
+  .testi-author span { font-size: 0.82rem; color: var(--text-soft); }
+  @media (max-width: 880px) { .testi-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+
+  /* ===========================================================
+     PROCESSO
+     =========================================================== */
+  .process { background: var(--bg-warm); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+  .step {
+    background: var(--white); border-radius: var(--radius); padding: 38px 26px;
+    box-shadow: var(--shadow-soft); position: relative; transition: transform .4s var(--ease);
+  }
+  .step:hover { transform: translateY(-6px); }
+  .step-num {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--bg); color: var(--green); border: 1.5px solid var(--gold-light);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 1.2rem; margin-bottom: 22px;
+  }
+  .step h3 { font-size: 1.05rem; font-weight: 500; line-height: 1.4; }
+
+  /* ===========================================================
+     SEÇÃO EMOCIONAL
+     =========================================================== */
+  .emotional {
+    position: relative; color: #fff; text-align: center;
+    padding: 130px 0; overflow: hidden;
+  }
+  .emotional::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 72% 62% at 50% 50%, rgba(0,0,0,0.38), rgba(0,0,0,0) 72%),
+                linear-gradient(rgba(45, 52, 40, 0.66), rgba(45, 52, 40, 0.74)),
+                url('images/eternizacao-emocional.jpg') center/cover no-repeat;
+    z-index: -2;
+  }
+  .emotional .eyebrow { color: #e6d4ad; text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 2px 14px rgba(0,0,0,0.5); }
+  .emotional h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 2.9rem); font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.55), 0 3px 20px rgba(0,0,0,0.45); }
+  .emotional p {
+    max-width: 620px; margin: 24px auto 0; font-weight: 500;
+    font-size: 1.18rem; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 2px 16px rgba(0,0,0,0.45);
+  }
+
+  /* ===========================================================
+     CONFIANÇA
+     =========================================================== */
+  .trust-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .trust-media img {
+    width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-soft);
+    aspect-ratio: 4/5; object-fit: cover;
+  }
+  .trust h2 { font-size: clamp(1.9rem, 3.3vw, 2.6rem); }
+  .trust p { color: var(--text-soft); font-weight: 400; font-size: 1.06rem; margin-top: 8px; }
+  .trust-points { list-style: none; margin-top: 28px; display: grid; gap: 14px; }
+  .trust-points li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.99rem; color: var(--text); }
+  .trust-points svg { width: 20px; height: 20px; flex: 0 0 20px; fill: var(--green-soft); margin-top: 2px; }
+
+  /* ===========================================================
+     CTA FINAL
+     =========================================================== */
+  .final-cta { text-align: center; padding: 110px 0; }
+  .final-card {
+    background: linear-gradient(160deg, var(--green) 0%, var(--green-deep) 100%);
+    border-radius: 34px; padding: 80px 40px; color: #fff;
+    box-shadow: 0 30px 60px rgba(65, 80, 58, 0.3); position: relative; overflow: hidden;
+  }
+  .final-card::after {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border: 1px solid rgba(216,196,160,0.35); border-radius: 50%;
+  }
+  .final-card .eyebrow { color: var(--gold-light); }
+  .final-card h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 400; }
+  .final-card p { max-width: 520px; margin: 20px auto 36px; font-weight: 300; color: rgba(255,255,255,0.9); font-size: 1.1rem; }
+  .final-card .btn { background: var(--white); color: var(--green-deep); }
+  .final-card .btn:hover { background: var(--bg-warm); }
+
+  /* ===========================================================
+     FOOTER
+     =========================================================== */
+  footer { background: var(--bg-warm); padding: 56px 0 36px; border-top: 1px solid var(--line); }
+  .footer-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-grid .logo { font-size: 22px; }
+  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { font-size: 14px; color: var(--text-soft); transition: color .3s; }
+  .footer-links a:hover { color: var(--green); }
+  .footer-bottom { text-align: center; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; color: var(--text-soft); }
+
+  /* ===========================================================
+     BOTÃO FLUTUANTE WHATSAPP
+     =========================================================== */
+  .wa-float {
+    position: fixed; bottom: 26px; right: 26px; z-index: 90;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+    transition: transform .35s var(--ease);
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+
+  /* ===========================================================
+     ANIMAÇÃO DE ENTRADA (reveal)
+     =========================================================== */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.show { opacity: 1; transform: none; }
+
+  /* ===========================================================
+     RESPONSIVO — mobile-first ajustes
+     =========================================================== */
+  @media (max-width: 980px) {
+    .hero-grid, .about-grid, .trust-grid { grid-template-columns: 1fr; gap: 44px; }
+    .hero { min-height: auto; padding: 130px 0 70px; }
+    .hero-media { order: -1; max-width: 460px; margin: 0 auto; }
+    .about-media { order: -1; }
+    .cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .menu-toggle { display: block; }
+    .nav .btn.desk { display: none; }
+  }
+  @media (max-width: 560px) {
+    .section { padding: 72px 0; }
+    .steps { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    .final-card { padding: 56px 24px; }
+    .hero-badge { left: 0; }
+    .hero-cta { width: 100%; }
+    .hero-cta .btn { flex: 1; justify-content: center; }
+  }
+
+  /* ===========================================================
+     MODAL — FORMULÁRIO DE CONTATO
+     =========================================================== */
+  .modal {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+    background: rgba(45, 52, 40, 0.55); backdrop-filter: blur(6px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .4s var(--ease), visibility .4s var(--ease);
+  }
+  .modal.open { opacity: 1; visibility: visible; }
+  .modal-card {
+    position: relative; width: 100%; max-width: 460px;
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); border: 1px solid var(--line);
+    padding: 48px 40px 38px; text-align: center;
+    max-height: calc(100vh - 48px); overflow-y: auto;
+    transform: translateY(26px) scale(0.97);
+    transition: transform .45s var(--ease);
+  }
+  .modal.open .modal-card { transform: none; }
+  .modal-card::before {
+    content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 66px; height: 3px; border-radius: 0 0 4px 4px;
+    background: linear-gradient(90deg, var(--gold-light), var(--gold));
+  }
+  .modal-close {
+    position: absolute; top: 15px; right: 15px;
+    width: 38px; height: 38px; border-radius: 50%;
+    border: none; background: var(--bg); color: var(--text-soft);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all .35s var(--ease);
+  }
+  .modal-close:hover { background: var(--bg-warm); color: var(--green-deep); transform: rotate(90deg); }
+  .modal-close svg { width: 18px; height: 18px; }
+  .modal-head { margin-bottom: 26px; }
+  .modal-head .eyebrow { margin-bottom: 12px; }
+  .modal-head h3 { font-size: 1.7rem; font-weight: 500; line-height: 1.25; }
+  .modal-head p { color: var(--text-soft); font-size: 0.95rem; font-weight: 400; margin-top: 10px; }
+  .field { margin-bottom: 17px; text-align: left; }
+  .field label {
+    display: block; font-size: 11.5px; font-weight: 600; letter-spacing: 1.3px;
+    text-transform: uppercase; color: var(--green-deep); margin-bottom: 7px;
+  }
+  .field input {
+    width: 100%; font-family: inherit; font-size: 1rem; color: var(--text);
+    padding: 14px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+    background: var(--bg);
+    transition: border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+  }
+  .field input::placeholder { color: #b6ada0; font-weight: 300; }
+  .field input:focus {
+    outline: none; border-color: var(--green-soft); background: var(--white);
+    box-shadow: 0 0 0 4px rgba(138, 154, 124, 0.16);
+  }
+  .modal form .btn { width: 100%; justify-content: center; margin-top: 6px; }
+  .modal-note {
+    display: flex; align-items: center; gap: 8px; justify-content: center;
+    margin-top: 18px; font-size: 0.8rem; color: var(--text-soft);
+  }
+  .modal-note svg { width: 15px; height: 15px; fill: var(--green-soft); flex: 0 0 15px; }
+  @keyframes modalUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .modal.open .modal-head { animation: modalUp .5s var(--ease) .08s backwards; }
+  .modal.open .field:nth-of-type(1) { animation: modalUp .5s var(--ease) .15s backwards; }
+  .modal.open .field:nth-of-type(2) { animation: modalUp .5s var(--ease) .21s backwards; }
+  .modal.open .field:nth-of-type(3) { animation: modalUp .5s var(--ease) .27s backwards; }
+  .modal.open form .btn { animation: modalUp .5s var(--ease) .33s backwards; }
+  .modal.open .modal-note { animation: modalUp .5s var(--ease) .39s backwards; }
+  @media (max-width: 560px) {
+    .modal-card { padding: 42px 24px 30px; }
+    .modal-head h3 { font-size: 1.45rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="Verde Joias — início">
+      <img class="logo-img" src="images/verde-joias-logo.svg" alt="Verde Joias" />
+    </a>
+    <nav class="nav-links">
+      <a href="#sobre">A Eternização</a>
+      <a href="#categorias">O que eternizamos</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#historias">Histórias</a>
+      <a href="#confianca">Nosso cuidado</a>
+      <a href="#depoimentos">Depoimentos</a>
+    </nav>
+    <a href="https://wa.me/558192130650?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Eterniza%C3%A7%C3%A3o%20da%20Verde%20Joias." class="btn desk js-open-form" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Falar pelo WhatsApp
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4a443c" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text reveal">
+      <span class="eyebrow">Eternização · Verde Joias</span>
+      <h1>Eternize momentos que merecem <em>durar para sempre</em></h1>
+      <p class="lead">Transformamos flores, buquês e memórias afetivas em peças únicas, criadas para guardar histórias com delicadeza e significado.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/558192130650?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Eterniza%C3%A7%C3%A3o%20da%20Verde%20Joias." class="btn large js-open-form" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+        <a href="#sobre" class="btn ghost large">Saiba mais</a>
+      </div>
+    </div>
+    <div class="hero-media reveal">
+      <img src="images/eternizacao-hero.jpg" alt="Noiva segurando buquê dourado eternizado pela Verde Joias" />
+      <div class="hero-badge"><b>✦</b> Peças únicas e personalizadas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE ===================== -->
+<section class="section about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-media reveal">
+      <img src="images/eternizacao-sobre.jpg" alt="Buquê de rosas eternizado em peça dourada" />
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">A Eternização</span>
+      <h2>O que é a Eternização?</h2>
+      <hr class="divider left" />
+      <p>A Eternização da Verde Joias é um processo afetivo e artesanal que transforma elementos naturais e simbólicos em criações únicas. Cada peça nasce a partir de uma história especial, preservando lembranças de forma delicada, elegante e personalizada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATEGORIAS ===================== -->
+<section class="section" id="categorias" style="background:var(--bg-warm);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">O que eternizamos</span>
+      <h2>Histórias que ganham forma</h2>
+      <hr class="divider" />
+      <p>Cada memória encontra a sua maneira de permanecer. Escolha o que deseja guardar para sempre.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-img"><img src="images/eternizacao-flores.jpg" alt="Buquê eternizado em cobre, exposto em redoma de acrílico" /></div>
+        <div class="card-body">
+          <h3>Flores e Buquês</h3>
+          <p>Eternize flores de casamentos, pedidos, aniversários e momentos marcantes em peças cheias de significado.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="card-img"><img src="images/eternizacao-memorias.jpg" alt="Chocalho de bebê eternizado em tom rosé pela Verde Joias" /></div>
+        <div class="card-body">
+          <h3>Memórias Afetivas</h3>
+          <p>Transforme lembranças especiais em criações delicadas, feitas para manter por perto aquilo que tem valor emocional.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="card-img"><img src="images/eternizacao-momentos.jpg" alt="Noiva usando coroa e brincos dourados da Verde Joias" /></div>
+        <div class="card-body">
+          <h3>Casamentos</h3>
+          <p>Eternize as lembranças do seu grande dia. Transformamos os símbolos do casamento em uma peça única, feita para celebrar o amor e durar para sempre.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESSO ===================== -->
+<section class="section process" id="processo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Passo a passo</span>
+      <h2>Como funciona</h2>
+      <hr class="divider" />
+      <p>Um processo simples, humano e acolhedor — do primeiro contato à sua peça final.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">1</div><h3>Você entra em contato pelo WhatsApp</h3></div>
+      <div class="step reveal"><div class="step-num">2</div><h3>Nossa equipe entende sua história e o que deseja eternizar</h3></div>
+      <div class="step reveal"><div class="step-num">3</div><h3>A peça é pensada de forma personalizada</h3></div>
+      <div class="step reveal"><div class="step-num">4</div><h3>Sua memória se transforma em uma criação única</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA — HISTÓRIAS ===================== -->
+<section class="section gallery" id="historias">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Histórias eternizadas</span>
+      <h2>Peças que já guardam memórias</h2>
+      <hr class="divider" />
+      <p>Cada criação nasceu de um momento real. Veja algumas histórias que se transformaram em peças únicas.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g-item reveal">
+        <div class="g-img"><img src="images/historia-casamento.webp" alt="Buquê de casamento eternizado ao lado da foto do casal" loading="lazy" /></div>
+        <figcaption>Um buquê de casamento eternizado, lado a lado com a memória que o inspirou.</figcaption>
+      </figure>
+      <figure class="g-item reveal">
+        <div class="g-img"><img src="images/historia-buque.webp" alt="Buquê eternizado em tom rosé sobre a mesa, entre folhagens" loading="lazy" /></div>
+        <figcaption>Flores que marcaram uma data especial, preservadas com delicadeza.</figcaption>
+      </figure>
+      <figure class="g-item reveal">
+        <div class="g-img"><img src="images/historia-sandalia.webp" alt="Sandália de bebê eternizada em tom rosé" loading="lazy" /></div>
+        <figcaption>Até os primeiros passos podem se tornar uma peça eterna.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EMOCIONAL ===================== -->
+<section class="emotional">
+  <div class="wrap reveal">
+    <span class="eyebrow">Sentimento em forma de arte</span>
+    <h2>Cada peça carrega uma história</h2>
+    <p>Mais do que uma joia ou um objeto, a Eternização é uma forma de transformar sentimentos em presença. Cada criação é feita para guardar memórias, afetos e momentos que continuam vivos através dos detalhes.</p>
+  </div>
+</section>
+
+<!-- ===================== CONFIANÇA ===================== -->
+<section class="section trust" id="confianca">
+  <div class="wrap trust-grid">
+    <div class="reveal">
+      <span class="eyebrow">Nosso cuidado</span>
+      <h2>Feito com cuidado, sensibilidade e atenção aos detalhes</h2>
+      <hr class="divider left" />
+      <p>Da primeira conversa até a entrega final, cada eternização é acompanhada com atenção. O processo é personalizado para respeitar a história de cada cliente e valorizar a beleza de cada memória.</p>
+      <ul class="trust-points">
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Atendimento próximo e personalizado</li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Trabalho artesanal e exclusivo</li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Respeito à história por trás de cada peça</li>
+      </ul>
+    </div>
+    <div class="trust-media reveal">
+      <img src="images/eternizacao-detalhe.jpg" alt="Detalhe artesanal de peça eternizada" />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEPOIMENTOS ===================== -->
+<!-- Depoimentos reais de clientes da Verde Joias -->
+<section class="section testi" id="depoimentos" style="background:var(--bg-warm);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>O que dizem nossos clientes</h2>
+      <hr class="divider" />
+      <p>Histórias de quem confiou à Verde Joias a tarefa de eternizar um momento especial.</p>
+    </div>
+    <div class="testi-grid">
+      <article class="testi-card reveal">
+        <div class="testi-quote">&ldquo;</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+        </div>
+        <p class="testi-text">Recebi as rosas e fiquei muito feliz com o resultado. Que trabalho lindo: fazer de 2 rosas guardadas há 8 anos na geladeira uma linda decoração, eternizada! A espera foi longa, mas valeu a pena.</p>
+        <div class="testi-author"><strong>Tarcila Barbosa</strong><span>Rosas eternizadas</span></div>
+      </article>
+      <article class="testi-card reveal">
+        <div class="testi-quote">&ldquo;</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+        </div>
+        <p class="testi-text">Simplesmente impecável! Emocionada em ver meu buquê transformado em uma lembrança para sempre! Gratidão imensa.</p>
+        <div class="testi-author"><strong>Rayanna Costa</strong><span>Buquê eternizado</span></div>
+      </article>
+      <article class="testi-card reveal">
+        <div class="testi-quote">&ldquo;</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.401 8.169L12 18.896l-7.335 3.857 1.401-8.169L.132 9.21l8.2-1.192z"/></svg>
+        </div>
+        <p class="testi-text">Muito obrigado por todo cuidado, atenção e carinho da parte de vocês. Tenham certeza que tornou o dia ainda mais especial!</p>
+        <div class="testi-author"><strong>Ighor Maciel</strong><span>Momento especial eternizado</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="final-cta">
+  <div class="wrap reveal">
+    <div class="final-card">
+      <span class="eyebrow">Vamos começar</span>
+      <h2>Pronta para eternizar sua história?</h2>
+      <p>Fale com a Verde Joias pelo WhatsApp e descubra como transformar sua memória em uma peça única.</p>
+      <a href="https://wa.me/558192130650?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Eterniza%C3%A7%C3%A3o%20da%20Verde%20Joias." class="btn large js-open-form" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Entrar em contato pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <a href="#" class="logo" aria-label="Verde Joias">
+        <img src="images/verde-joias-logo.svg" alt="Verde Joias" style="height:73px;width:auto;display:block;" />
+      </a>
+      <nav class="footer-links">
+        <a href="#sobre">A Eternização</a>
+        <a href="#categorias">O que eternizamos</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#historias">Histórias</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="https://www.instagram.com/verdejoias/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/558192130650?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Eterniza%C3%A7%C3%A3o%20da%20Verde%20Joias." target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">© 2026 Verde Joias · Eternização · Cada memória, uma peça única.</div>
+  </div>
+</footer>
+
+<!-- ===================== WHATSAPP FLUTUANTE ===================== -->
+<a href="https://wa.me/558192130650?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Eterniza%C3%A7%C3%A3o%20da%20Verde%20Joias." class="wa-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- ===================== MODAL — FORMULÁRIO DE CONTATO ===================== -->
+<div class="modal" id="contatoModal" role="dialog" aria-modal="true" aria-labelledby="contatoTitulo" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Fechar formulário">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-head">
+      <span class="eyebrow">Fale com a Verde Joias</span>
+      <h3 id="contatoTitulo">Vamos eternizar sua história</h3>
+      <p>Deixe seus dados e a gente continua a conversa pelo WhatsApp.</p>
+    </div>
+    <form id="contatoForm" novalidate>
+      <div class="field">
+        <label for="f-nome">Nome</label>
+        <input type="text" id="f-nome" name="nome" placeholder="Seu nome completo" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="f-whats">WhatsApp</label>
+        <input type="tel" id="f-whats" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel" inputmode="tel" />
+      </div>
+      <div class="field">
+        <label for="f-email">E-mail</label>
+        <input type="email" id="f-email" name="email" placeholder="voce@exemplo.com" required autocomplete="email" />
+      </div>
+      <button type="submit" class="btn large">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Enviar pelo WhatsApp
+      </button>
+      <div class="modal-note">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Seus dados são usados apenas para o atendimento.
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  /* Header com fundo ao rolar */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* Reveal on scroll */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Menu mobile — rola até as seções */
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  /* ===== Modal de contato (coleta Nome/WhatsApp/E-mail → abre o WhatsApp já preenchido) ===== */
+  (function () {
+    const WHATS_NUMERO = '558192130650';
+    const SUPABASE_URL = 'https://ineqsoqfhqzuonvyyxxb.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_4W6Bdfle6nEl8Q-SoBn1vw_cD64bp9z';
+    const modal = document.getElementById('contatoModal');
+    const form = document.getElementById('contatoForm');
+    let lastFocused = null;
+
+    function openModal(e) {
+      if (e) e.preventDefault();
+      lastFocused = document.activeElement;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function () { document.getElementById('f-nome').focus(); }, 140);
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.js-open-form').forEach(function (el) {
+      el.addEventListener('click', openModal);
+    });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const nome  = document.getElementById('f-nome').value.trim();
+      const whats = document.getElementById('f-whats').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+
+      /* Registra o lead no Supabase (fire-and-forget; keepalive conclui mesmo ao trocar de aba) */
+      try {
+        fetch(SUPABASE_URL + '/rest/v1/leads', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ nome: nome, whatsapp: whats, email: email }),
+          keepalive: true
+        }).catch(function () {});
+      } catch (err) {}
+
+      const msg =
+        'Oi, Verde Joias! Vim pelo site e quero eternizar uma memória.\n\n' +
+        'Meu nome é ' + nome + ' e meu e-mail é ' + email + '. ' +
+        'Já quero começar. Como dou o primeiro passo?';
+      window.open('https://wa.me/' + WHATS_NUMERO + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      closeModal();
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>
