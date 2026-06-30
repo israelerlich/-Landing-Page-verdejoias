@@ -13,3 +13,11 @@ Thumbs.db
 ehthumbs.db
 .DS_Store
 desktop.ini
+
+# Pasta de deploy do Netlify (gerada)
+netlify-deploy/
+
+# Pastas locais que nao fazem parte da landing page
+_estagio_work/
+entrega-prints-codigo/
+safegraph-app-prototipo/

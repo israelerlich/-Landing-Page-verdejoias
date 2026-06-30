@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K84M6NRR');</script>
+<!-- End Google Tag Manager -->
+
 <title>Eternização | Verde Joias — Transforme memórias em peças únicas</title>
 <meta name="description" content="A Eternização da Verde Joias transforma flores, buquês e memórias afetivas em peças únicas, artesanais e personalizadas. Fale conosco pelo WhatsApp." />
 
@@ -412,6 +421,11 @@
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K84M6NRR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <!-- ===================== HEADER ===================== -->
 <header id="header">
   <div class="wrap nav">
@@ -767,6 +781,10 @@
       const whats = document.getElementById('f-whats').value.trim();
       const email = document.getElementById('f-email').value.trim();
 
+      /* Evento de conversao para o Google Tag Manager (cadastro / lead) */
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'gerar_lead' });
+
       /* Registra o lead no Supabase (fire-and-forget; keepalive conclui mesmo ao trocar de aba) */
       try {
         fetch(SUPABASE_URL + '/rest/v1/leads', {
@@ -784,8 +802,7 @@
 
       const msg =
         'Oi, Verde Joias! Vim pelo site e quero eternizar uma memória.\n\n' +
-        'Meu nome é ' + nome + ' e meu e-mail é ' + email + '. ' +
-        'Já quero começar. Como dou o primeiro passo?';
+        'Meu nome é ' + nome + '. Já quero começar. Como dou o primeiro passo?';
       window.open('https://wa.me/' + WHATS_NUMERO + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       closeModal();
       form.reset();
