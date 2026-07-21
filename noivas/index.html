@@ -225,6 +225,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width: 980px) { .cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
 
   /* ===========================================================
+     GALERIA — joias de noiva
+     =========================================================== */
+  .galeria-joias { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 258px; gap: 20px; }
+  .gj-item {
+    position: relative; overflow: hidden; border-radius: var(--radius);
+    box-shadow: var(--shadow-soft); border: 1px solid var(--line); margin: 0;
+  }
+  .gj-item.destaque { grid-row: span 2; }
+  .gj-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+  .gj-item:hover img { transform: scale(1.05); }
+  .gj-item figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 30px 20px 16px; color: #fff; font-size: 0.9rem; font-weight: 500;
+    background: linear-gradient(to top, rgba(35,40,32,0.85), rgba(35,40,32,0));
+    letter-spacing: 0.3px; line-height: 1.35;
+  }
+  .gj-item figcaption span {
+    display: block; font-size: 0.75rem; font-weight: 400; color: #e6d4ad;
+    margin-top: 3px; letter-spacing: 0.8px; text-transform: uppercase;
+  }
+  @media (max-width: 880px) { .galeria-joias { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 215px; } }
+  @media (max-width: 560px) {
+    .galeria-joias { grid-template-columns: 1fr; grid-auto-rows: 290px; }
+    .gj-item.destaque { grid-row: span 1; }
+  }
+
+  /* ===========================================================
      BANHOS
      =========================================================== */
   .banhos { background: var(--bg-warm); }
@@ -567,7 +594,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ===================== O QUE ETERNIZAR ===================== -->
-<section class="section" id="joias" style="background:var(--bg-warm);">
+<section class="section" id="eternizar" style="background:var(--bg-warm);">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">O que dá para eternizar</span>
@@ -577,7 +604,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="cards">
       <article class="card reveal">
-        <div class="card-img"><img src="../images/eternizacao-sobre.jpg" alt="Buquê de noiva eternizado em peça dourada" loading="lazy" /></div>
+        <div class="card-img"><img src="../images/noiva-buque-eterno.jpg" alt="Noiva segurando o próprio buquê de casamento já eternizado em banho dourado" loading="lazy" /></div>
         <div class="card-body">
           <h3>O buquê inteiro</h3>
           <p>Sua escultura completa: cada flor do buquê preservada e banhada, pronta para ser a peça mais marcante da sua casa.</p>
@@ -597,6 +624,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Tiaras, coroas, pentes, brincos, lapelas do noivo e porta-alianças — feitos com folhas e flores reais banhadas em ouro, prata ou cobre.</p>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA — JOIAS DE NOIVA ===================== -->
+<section class="section" id="joias">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Joias de noiva</span>
+      <h2>Para usar no dia — e <em>guardar depois</em></h2>
+      <hr class="divider" />
+      <p>Tiaras, coroas, pentes, brincos e lapelas feitos a partir de folhas e flores reais, banhadas em ouro ou prata. Cada peça é única, como o seu casamento.</p>
+    </div>
+    <div class="galeria-joias reveal">
+      <figure class="gj-item destaque">
+        <img src="../images/noiva-pente-oliveira.jpg" alt="Noiva de véu usando pente de folhas banhado a prata, em meio à natureza" loading="lazy" />
+        <figcaption>Pente Oliveira<span>Banho prata</span></figcaption>
+      </figure>
+      <figure class="gj-item">
+        <img src="../images/noiva-tiara-alecrim.jpg" alt="Modelo usando tiara de alecrim e brincos alongados banhados a ouro" loading="lazy" />
+        <figcaption>Tiara Alecrim<span>Banho ouro</span></figcaption>
+      </figure>
+      <figure class="gj-item">
+        <img src="../images/noiva-tiara-jasmim.jpg" alt="Mãos segurando uma tiara de folhas de jasmim banhada a ouro" loading="lazy" />
+        <figcaption>Tiara de Jasmim<span>Banho ouro</span></figcaption>
+      </figure>
+      <figure class="gj-item">
+        <img src="../images/noiva-coroa-orquidea.jpg" alt="Noiva usando coroa e brincos de orquídea banhados a ouro em um jardim" loading="lazy" />
+        <figcaption>Coroa de Orquídea<span>Banho ouro</span></figcaption>
+      </figure>
+      <figure class="gj-item">
+        <img src="../images/noiva-coroa-gipsofila.jpg" alt="Modelo usando coroa e brincos de gipsófila banhados a prata" loading="lazy" />
+        <figcaption>Coroa Gipsófila<span>Banho prata</span></figcaption>
+      </figure>
+    </div>
+    <p style="text-align:center; margin-top:38px; color:var(--text-soft); font-size:0.95rem;">
+      Também fazemos lapela do noivo, porta-alianças, brincos e arranjos —
+      e podemos criar o conjunto inteiro em torno da sua história.
+    </p>
+    <div style="text-align:center; margin-top:22px;">
+      <a href="#contato" class="btn">Quero conhecer as joias de noiva</a>
     </div>
   </div>
 </section>
